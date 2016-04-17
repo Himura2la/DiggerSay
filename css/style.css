@@ -17,25 +17,29 @@ a:hover	{
 	color: #267f4c; }
 h1{
 	font-size: 48px;
-	text-align: center;
-	font-family: 'Ubuntu Condensed', sans-serif; 
-	color: #267f4c;
 }
 .clear{
 	width: 100%;
 	overflow: hidden;
 }
-.quote-div{
+#quote{
    	background-attachment: fixed;
 	background-color: #b8d331;
 	background-position: center center;
 	height: auto;
 	width: auto;
+	max-height: none;
 	max-width: 500px;
 	min-height: 130px;
 	margin: 0 auto;
 	padding-bottom: 30px;
-	padding-top: 50px;
+	padding-top: 100px;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	top: auto;
+	clear: both;
+	float: none;
 	overflow: visible;
 	position: relative;
 	visibility: visible;
@@ -180,8 +184,4 @@ h1{
 	color: #267f4c;
 	vertical-align: middle;
 	line-height: 80px;
-}
-.ui-input-text ,
-.ui-input-search {
-	margin: 1.5em 0;
 }
