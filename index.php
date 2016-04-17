@@ -31,10 +31,10 @@
 	<body>
 		<a id="next-quote" href="#">
             <div>
-                <div id="quote"> 
+                <div class="quote-div"> 
                     <h1 class="quote-text"><?php echo $quote ?></h1>
                 </div> 
-                <div id="centralpicture"></div> 
+                <div class="centralpicture"></div> 
                 <h1 class="dig-say dig-say-text">Скажет диггер</h1>
             </div>
         </a>
@@ -46,7 +46,6 @@
 				<a id="share_tw" href="#"><div class="soc3"></div></a>
 				<a id="share_gp" href="#"><div class="soc4"></div></a>
 				<a id="share_ok" href="#"><div class="soc5"></div></a>
-				<!--a href="rss.xml"><div class="soc6"></div></a-->
 			</div> 
 		</div>
 		<div class="clear"></div>
