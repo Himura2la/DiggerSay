@@ -1,2 +1,2 @@
 # DiggerSay
-**master** is deploysed on [diggerquote.azurewebsites.net](diggerquote.azurewebsites.net)
+**master** is deployed on [diggerquote.azurewebsites.net](diggerquote.azurewebsites.net)
