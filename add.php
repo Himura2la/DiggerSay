@@ -4,7 +4,7 @@ require 'db.php';
 $text = 'Добавить цитату';
 if (isset($_POST['text'])){
     $text = $_POST['text'];
-	
+	}
 ?>	
 <!DOCTYPE html>
 <html lang="ru">
