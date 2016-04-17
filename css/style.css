@@ -22,7 +22,7 @@ h1{
 	width: 100%;
 	overflow: hidden;
 }
-#quote{
+.quote-div{
    	background-attachment: fixed;
 	background-color: #b8d331;
 	background-position: center center;
@@ -45,13 +45,12 @@ h1{
 	visibility: visible;
 }
 .quote-text{
-	font-family: 'Ubuntu Condensed', sans-serif;
    	color: #267f4c;
 	text-align: center;
 	text-decoration: none;
 	vertical-align: middle;
 }
-#centralpicture{
+.centralpicture{
    	background-attachment: inherit;
 	background-repeat: no-repeat;
 	background-color: #b8d331;
@@ -184,4 +183,8 @@ h1{
 	color: #267f4c;
 	vertical-align: middle;
 	line-height: 80px;
+}
+.ui-input-text ,
+.ui-input-search {
+	margin: 1.5em 0;
 }
