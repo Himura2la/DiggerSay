@@ -4,7 +4,7 @@ require 'db.php';
 $author = '';
 $text = 'Добавить цитату';
 
-if (isset($_POST['text'])){
+if (isset($_POST['text'])&&!empty($_POST['text'])){
     $text = $_POST['text'];
 	if(isset($_POST['author'])){
 		$author = $_POST['author'];
