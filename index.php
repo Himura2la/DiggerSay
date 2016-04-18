@@ -10,7 +10,23 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
         <script type="text/javascript" src="main.js"></script>
-
+		<script type="text/javascript" src="jqueryrotate.2.1.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery("#nav-arrow").rotate({ 
+				bind: 
+				{ 
+					mouseover : function() { 
+						$(this).rotate({animateTo:60})
+					},
+					mouseout : function() { 
+						$(this).rotate({animateTo:0})
+					}
+				} 
+			   
+				});
+			});
+		</script>
 <?php
     $quote = "";
     if (isset($_GET['id'])){
@@ -35,7 +51,7 @@
                     <h1 class="quote-text"><?php echo $quote ?></h1>
                 </div> 
                 <div class="centralpicture">
-					<img src="images/nav-arrow-center.png">
+					<img src="images/nav-arrow-center.png" id="nav-arrow">
 				</div> 
                 <h1 class="dig-say dig-say-text">Скажет диггер</h1>
             </div>
