@@ -4,7 +4,7 @@ $author = '';
 $text = 'Добавить цитату';
 if (isset($_POST['text'])){
     $text = $_POST['text'];
-		$stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES ('?', '?', '0')");        
+		$stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES (?, ?, '0')");        
         $stmt->bind_param("ss", $author, $text);
         $stmt->execute();
 		$stmt->close();
