@@ -34,7 +34,9 @@
                 <div class="quote-div"> 
                     <h1 class="quote-text"><?php echo $quote ?></h1>
                 </div> 
-                <div class="centralpicture"></div> 
+                <div class="centralpicture">
+					<img src="images/nav-arrow-center.png">
+				</div> 
                 <h1 class="dig-say dig-say-text">Скажет диггер</h1>
             </div>
         </a>
