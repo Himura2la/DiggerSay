@@ -1,8 +1,11 @@
 *{
 	margin:0px;padding:0px;
-	background-color: #b8d331;
 	font-family: 'Ubuntu Condensed', sans-serif;
 }
+body {
+    background-color: #b8d331;
+}
+
 a:link	{
 	text-decoration: none;
 	color: #267f4c; }
@@ -53,13 +56,11 @@ h1{
 .centralpicture{
    	background-attachment: inherit;
 	background-repeat: no-repeat;
-	background-color: #b8d331;
-	background-image: url(../images/bm_1460703469.jpeg);
+	background-image: url(../images/nav-bg.png);
 	background-position: center center;
-	height: auto;
-	width: auto;
 	min-height: 150px;
 	min-width: 300px;
+	text-align: center;
 }
 .dig-say{
    	background-attachment: fixed;
