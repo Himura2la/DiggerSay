@@ -1,3 +1,16 @@
+<?php
+require 'db.php';
+$author = '';
+$text = 'Добавить цитату';
+if (isset($_POST['text'])){
+    $text = $_POST['text'];
+		$stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES ('?', '?', '0')");        
+        $stmt->bind_param("ss", $author, $text);
+        $stmt->execute();
+		$stmt->close();
+	
+}
+?>	
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -18,13 +31,13 @@
 	<body>
 <div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 30px; padding-bottom: 20px;">
   <div data-role="content">
-	<h1 class="quote-text">Добавить цитату</h1>
-    <form method="post" action="http://ya.ru/add.php">
+	<h1 class="quote-text"><?php echo $text ?></h1>
+    <form method="post" action="add.php">
 		<label for="fname" class="ui-hidden-accessible">Имя</label>
 		<input type="text" name="author" id="author" placeholder="Имя... (не обязательно)">
 		<label for="textarea" class="ui-hidden-accessible">Цитата:</label>
 		<textarea name="text" id="text" rows="5" placeholder="Текст..."></textarea>
-		<input type="submit" value="Сказал диггер">
+		<input type="submit" value="...сказал диггер">
     </form>
   </div>
 </div>
