@@ -61,6 +61,24 @@ function rewrite_url(id) {
     history.pushState({ 'id': id }, document.title, id);
 }
 
+function find_new_quote(event){
+    if (event != null){
+        event.preventDefault();
+    }
+    
+    if (IDs.length == 0){
+        $(".quote-text").html(last_quote);
+        return;
+    }
+
+    var i = Math.floor(Math.random()*IDs.length);
+    var id = IDs[i];
+    IDs.remove(i);
+    
+    rewrite_url(id);
+    update_quote(id);
+}
+
 function on_click(){
     $("#next-quote").click(find_new_quote);
 }
@@ -86,24 +104,6 @@ function update_quote(ID){
         $(".quote-text").html(data); 
         current_quote = data
     });
-}
-
-function find_new_quote(event){
-    if (event != null){
-        event.preventDefault();
-    }
-    
-    if (IDs.length == 0){
-        $(".quote-text").html(last_quote);
-        return;
-    }
-
-    var i = Math.floor(Math.random()*IDs.length);
-    var id = IDs[i];
-    IDs.remove(i);
-    
-    rewrite_url(id);
-    update_quote(id);
 }
 
 function get_ids_init(data){
