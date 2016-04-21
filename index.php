@@ -11,22 +11,9 @@
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
         <script type="text/javascript" src="main.js"></script>
 		<script type="text/javascript" src="jqueryrotate.2.1.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function() {
-				jQuery("#nav-arrow").rotate({ 
-				bind: 
-				{ 
-					mouseover : function() { 
-						$(this).rotate({animateTo:60})
-					},
-					mouseout : function() { 
-						$(this).rotate({animateTo:0})
-					}
-				} 
-			   
-				});
-			});
-		</script>
+		<script type="text/javascript" src="rotate_arrow.js"></script>
+        
+        <!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
     $quote = "";
     if (isset($_GET['id'])){
