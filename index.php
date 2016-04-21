@@ -40,7 +40,6 @@
         echo "\t\t<meta property=\"og:title\" content=\"". $quote ."\" />\n";
         echo "\t\t<meta property=\"og:image\" content=\"http://$_SERVER[HTTP_HOST]/images/vk_repost.jpg\" />\n";
         echo "\t\t<meta property=\"og:description\" content=\"Скажет диггер\" />\n";
-    }
 ?>
     
 
