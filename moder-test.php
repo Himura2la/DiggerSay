@@ -24,7 +24,7 @@ require 'db.php';
         $stmt->execute();
         $res = $stmt->get_result();
         while ($row = $res->fetch_assoc()) {
-			echo '					<li>'."\n".'						<a href="#">';
+			echo '					<li>'."\n".'						<a href="#enable" data-rel="dialog" data-transition="pop">';
 			echo "							{$row['ID']}: {$row['Text']}\n"; 
 			echo '						</a>'."\n".'						<a href="#delete" data-rel="dialog" data-transition="pop" data-icon="delete"></a>'."\n";
 			echo "					</li>\n";
@@ -37,6 +37,13 @@ require 'db.php';
 			<div data-role="content">
 				<h3>Удалить цитату?</h3>
 					<a href="#" data-role="button" data-rel="back" data-icon="check" data-inline="true" data-mini="true">Удалить</a>
+					<a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Отмена</a>
+			</div>
+		</div> 
+		<div data-role="page" id="enable">
+			<div data-role="content">
+				<h3>Допустить цитату?</h3>
+					<a href="#" data-role="button" data-rel="back" data-icon="check" data-inline="true" data-mini="true">да</a>
 					<a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Отмена</a>
 			</div>
 		</div> 
