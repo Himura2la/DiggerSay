@@ -14,7 +14,10 @@
         <title>Цитаты на модерации</title>
 	</head>
 	<body>
-		<ul>
+		<div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 10px; padding-bottom: 10px;">
+			<div data-role="content">
+				<h1 class="quote-text">Цитаты на модерации</h1>
+				<ul>
 <?php
 require 'db.php';
 		$stmt = $mysqli->prepare("SELECT * FROM quotes_main WHERE Active=0");        
@@ -24,6 +27,8 @@ require 'db.php';
 			echo '			<li>'.$row['ID'].': '.$row['Text'].'</li>\n'; 
 		}
 ?>
-		</ul>
+				</ul>
+			</div>
+		</div>
 	</body>
 </html>
