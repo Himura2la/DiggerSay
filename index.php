@@ -27,7 +27,7 @@
         $quote = $out['Text'];
         echo "<script type=\"text/javascript\">";
         echo "    $(function() {rewrite_url(<?php $id ?>);});";
-        echo "</script>"
+        echo "</script>";
     }
         
         echo "\t\t<meta property=\"og:url\" content=\"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]\" />\n";
