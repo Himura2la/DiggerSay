@@ -80,15 +80,16 @@ function find_new_quote(event){
 }
 
 function on_click(){
-    $("#next-quote").click(find_new_quote);
+    $("body").on("click", "#next-quote", find_new_quote);
 }
 function off_click(){
-    $("#next-quote").off("click");
+    $("body").off("click", "#next-quote", find_new_quote);
 }
 
 function make_loading(){
     $(".quote-text").html("...");
     off_click();
+    console.log("start displaying loading");
 }
 
 function update_quote(ID){
@@ -98,6 +99,7 @@ function update_quote(ID){
         clearTimeout(loading);
         if (loading >= loading_display_after){ // Loading was started
             on_click();
+            console.log("restore after loading");
         }
         
         // Update text
@@ -105,6 +107,8 @@ function update_quote(ID){
         current_quote = data
     });
 }
+
+//Enter to one of these
 
 function get_ids_init(data){
     IDs = JSON.parse(data);
