@@ -189,13 +189,3 @@ h1{
 .ui-input-search {
 	margin: 1.5em 0;
 }
-
-.vertical-list {  
-  list-style: none;  
-  padding: 10px;  
-  width: 200px;  
-  border-radius: 5px;  
-  -moz-border-radius: 5px;  
-  -webkit-border-radius: 5px;  
-  background: #b8d331; 
-  }  

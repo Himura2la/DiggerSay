@@ -24,7 +24,10 @@ require 'db.php';
         $stmt->execute();
         $res = $stmt->get_result();
         while ($row = $res->fetch_assoc()) {
-			echo "					<li>{$row['ID']}: {$row['Text']}</li>\n"; 
+			echo "					<li>\n";
+			echo "						{$row['ID']}: {$row['Text']}\n"; 
+			echo '<a href="#" data-icon="check"></a>';
+			echo "					</li>";
 		}
 ?>
 				</ul>
