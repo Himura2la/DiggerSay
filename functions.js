@@ -78,6 +78,7 @@ function update_quote(ID){
     $.get("quote.php?id=" + ID, function(data){
         // Stop loading
         clearTimeout(loading);
+        debugger;
         on_click();
         
         // Update text
