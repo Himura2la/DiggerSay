@@ -1,8 +1,8 @@
 // Array Remove - By John Resig (MIT Licensed)
-Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
+function array_remove(array, from, to) {
+  var rest = array.slice((to || from) + 1 || array.length);
+  array.length = from < 0 ? array.length + from : from;
+  return array.push.apply(array, rest);
 };
 
 // https://habrahabr.ru/post/156185/
@@ -75,7 +75,7 @@ function find_new_quote(event){
 
     var i = Math.floor(Math.random()*IDs.length);
     var id = IDs[i];
-    IDs.remove(i);
+    array_remove(IDs, i);
     
     rewrite_url(id);
     update_quote(id);
@@ -83,7 +83,6 @@ function find_new_quote(event){
 
 function make_loading(){
     $(".quote-text").html("...");
-    console.log("start displaying loading");
 }
 
 function update_quote(ID){
@@ -91,7 +90,6 @@ function update_quote(ID){
     $.get("quote.php?id=" + ID, function(data){
         // Stop loading
         clearTimeout(loading);
-        if (loading >= loading_display_after) console.log("end loading");
         loading = null;
         
         // Update text
