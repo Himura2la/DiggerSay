@@ -20,7 +20,7 @@ require 'db.php';
         while ($row = $res->fetch_assoc()) {
 			echo "<li>";
 			echo json_encode($row, JSON_UNESCAPED_UNICODE);
-			echo "</li>"
+			echo "</li>";
 		}
 ?>
 		</ul>
