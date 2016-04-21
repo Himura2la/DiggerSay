@@ -24,7 +24,7 @@ require 'db.php';
         $stmt->execute();
         $res = $stmt->get_result();
         while ($row = $res->fetch_assoc()) {
-			echo '				<li>'.$row['ID'].': '.$row['Text'].'</li>'."\n"; 
+			echo "					<li>$row['ID']: $row['Text']</li>\n"; 
 		}
 ?>
 				</ul>
