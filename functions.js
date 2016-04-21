@@ -92,6 +92,7 @@ function update_quote(ID){
         // Stop loading
         clearTimeout(loading);
         loading = null;
+        console.log("end loading");
         
         // Update text
         $(".quote-text").html(data); 
