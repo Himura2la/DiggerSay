@@ -26,23 +26,17 @@ if ((isset($_POST['text']) && !empty($_POST['text']))){
 		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
+	
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-		<script src="jqueryhotkeys.js"></script>
-		<script>
 
-$('#text').bind('keydown', 'Ctrl+return', function() {
-  $('#addqoute-form').submit();
-  return false;
-});
-
-		</script>
         <title>Добавить цитату</title>
 	</head>
 	<body>
 <div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 30px; padding-bottom: 20px;">
   <div data-role="content">
 	<h1 class="quote-text"><?php echo $text ?></h1>
+
     <form method="post" action="add.php" id="addqoute-form">
 		<label for="fname" class="ui-hidden-accessible">Имя</label>
 		<input type="text" name="author" id="author" placeholder="Имя... (не обязательно)">
