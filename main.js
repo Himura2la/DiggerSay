@@ -107,7 +107,6 @@ function get_ids_init(data){
 
 function get_ids_display(data){
     IDs = JSON.parse(data);
-    //update_quote(target_id);
     current_quote = $(".quote-text").html(); //solved via PHP
     $("#next-quote").click(find_new_quote);
 }
@@ -119,7 +118,7 @@ $(function() {
     if (target_id) {
         $.get("ids.php", get_ids_display);
     } else {
-        $.get("ids.php", get_ids_init);
+        $.get("ids.php", get_ids_init); // На всякий...
     }
     
     $(window).on('popstate', function() { //Browser back

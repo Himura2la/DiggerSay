@@ -9,7 +9,6 @@
 		
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
-        <script type="text/javascript" src="main.js"></script>
 		<script type="text/javascript" src="jqueryrotate.2.1.js"></script>
 		<script type="text/javascript" src="rotate_arrow.js"></script>
         
@@ -40,7 +39,7 @@
 ?>
     
 
-        
+        <script type="text/javascript" src="main.js"></script> <!-- порядок важен! -->
         
         <title>Скажет диггер</title>
 	</head>
