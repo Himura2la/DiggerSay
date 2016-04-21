@@ -19,7 +19,7 @@ require 'db.php';
         $res = $stmt->get_result();
         while ($row = $res->fetch_assoc()) {
 			echo "			<li>";
-			echo $row[id].': '.$row[text]; 
+			echo $row[ID].': '.$row[Text]; 
 			echo "			</li>";
 		}
 ?>
