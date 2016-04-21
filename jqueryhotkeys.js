@@ -203,3 +203,7 @@
 
 })(jQuery || this.jQuery || window.jQuery);
 
+$('#text').bind('keydown', 'Ctrl+return', function() {
+  $('#addqoute-form').submit();
+  return false;
+});
