@@ -18,9 +18,9 @@ require 'db.php';
         $stmt->execute();
         $res = $stmt->get_result();
         while ($row = $res->fetch_assoc()) {
-			echo "<li>";
-			echo json_encode($row, JSON_UNESCAPED_UNICODE);
-			echo "</li>";
+			echo "			<li>";
+			echo $row[id].': '.$row[text]; 
+			echo "			</li>";
 		}
 ?>
 		</ul>
