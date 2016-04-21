@@ -17,7 +17,7 @@
 		<div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 10px; padding-bottom: 10px;">
 			<div data-role="content">
 				<h1 class="quote-text">Цитаты на модерации</h1>
-				<ul>
+				<ul data-role="listview" data-inset="true">
 <?php
 require 'db.php';
 		$stmt = $mysqli->prepare("SELECT * FROM quotes_main WHERE Active=0");        
