@@ -8,16 +8,19 @@
 		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         
-        <title>Скажет диггер</title>
+        <title>Цитаты на модерации</title>
 	</head>
 	<body>
+		<ul>
 <?php
 require 'db.php';
 		$stmt = $mysqli->prepare("SELECT * FROM quotes_main WHERE Active=0");        
         $stmt->execute();
         $res = $stmt->get_result();
-        $row = $res->fetch_assoc();
-        echo json_encode($row, JSON_UNESCAPED_UNICODE);
+        while ($row = $res->fetch_assoc();) {
+			echo json_encode($row, JSON_UNESCAPED_UNICODE);
+		}
 ?>
+		</ul>
 	</body>
 </html>
