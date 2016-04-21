@@ -11,6 +11,7 @@
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 		<script type="text/javascript" src="jqueryrotate.2.1.js"></script>
 		<script type="text/javascript" src="rotate_arrow.js"></script>
+        <script type="text/javascript" src="functions.js"></script>
         
         <!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
@@ -27,9 +28,9 @@
         $out = json_decode($out, true);
         $id = $out['Id'];
         $quote = $out['Text'];
-        echo "<script type=\"text/javascript\">";
-        echo "    $(function() {rewrite_url(". $id .");});";
-        echo "</script>";
+        echo "\t\t<script type=\"text/javascript\">\n";
+        echo "\t\t    $(function() {rewrite_url(". $id .");});\n";
+        echo "\t\t</script>\n";
     }
         
         echo "\t\t<meta property=\"og:url\" content=\"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]\" />\n";
