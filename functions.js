@@ -69,7 +69,7 @@ function find_new_quote(event){
     
     if (IDs.length == 0){
         $.get("ids.php", get_ids_init); //In circle
-        start_loading();
+        display_loading();
         return;
     }
 
