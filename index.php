@@ -24,12 +24,16 @@
         $id = $_GET['id'];
         $quote = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?id=" . $id);
     } else {
-        $out = json_decode(file_get_contents("http://$_SERVER[HTTP_HOST]/randomquote.php?full"), true);
-        $id = $out['Id'];
-        $quote = $out['Text'];
-        echo "<script type=\"text/javascript\">";
-        echo "    $(function() {rewrite_url(<?php $id ?>);});";
-        echo "</script>";
+        $out = file_get_contents("http://$_SERVER[HTTP_HOST]/randomquote.php?full");
+        
+        echo $out;
+        $out = json_decode($out, true);
+        
+        //$id = $out['Id'];
+        //$quote = $out['Text'];
+        //echo "<script type=\"text/javascript\">";
+        //echo "    $(function() {rewrite_url(". $id .");});";
+        //echo "</script>";
     }
         
         echo "\t\t<meta property=\"og:url\" content=\"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]\" />\n";
