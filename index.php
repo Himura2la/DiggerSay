@@ -16,11 +16,19 @@
         <!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
     $quote = "";
+    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    
     if (isset($_GET['id'])){
         $id = $_GET['id'];
-        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        
         $quote = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?id=" . $id);
+    } else {
+        $out = json_decode(file_get_contents("http://$_SERVER[HTTP_HOST]/randomquote.php?full"), true);
+        $id = $out['Id'];
+        $quote = $out['Text'];
+        echo "<script type=\"text/javascript\">";
+        echo "    $(function() {rewrite_url(<?php $id ?>);});";
+        echo "</script>"
+    }
         
         echo "\t\t<meta property=\"og:url\" content=\"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]\" />\n";
         echo "\t\t<meta property=\"og:title\" content=\"". $quote ."\" />\n";
@@ -28,6 +36,9 @@
         echo "\t\t<meta property=\"og:description\" content=\"Скажет диггер\" />\n";
     }
 ?>
+    
+
+        
         
         <title>Скажет диггер</title>
 	</head>
