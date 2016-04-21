@@ -15,6 +15,8 @@
         
         <!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
+
+
     $quote = "";
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     
