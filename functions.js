@@ -65,9 +65,11 @@ function find_new_quote(event){
     if (event != null){
         event.preventDefault();
     }
+    if (loading != null) return;
     
     if (IDs.length == 0){
-        $(".quote-text").html(last_quote);
+        //$(".quote-text").html(last_quote);
+        $.get("ids.php", get_ids_init);
         return;
     }
 
@@ -79,16 +81,8 @@ function find_new_quote(event){
     update_quote(id);
 }
 
-function on_click(){
-    $("body").on("click", "#next-quote", find_new_quote);
-}
-function off_click(){
-    $("body").off("click", "#next-quote", find_new_quote);
-}
-
 function make_loading(){
     $(".quote-text").html("...");
-    off_click();
     console.log("start displaying loading");
 }
 
@@ -97,10 +91,7 @@ function update_quote(ID){
     $.get("quote.php?id=" + ID, function(data){
         // Stop loading
         clearTimeout(loading);
-        if (loading >= loading_display_after){ // Loading was started
-            on_click();
-            console.log("restore after loading");
-        }
+        loading = null;
         
         // Update text
         $(".quote-text").html(data); 
@@ -108,15 +99,15 @@ function update_quote(ID){
     });
 }
 
-//Enter to one of these
+//Enter to one of then
 
 function get_ids_init(data){
     IDs = JSON.parse(data);
     find_new_quote();
-    on_click();
+    $("#next-quote").click(find_new_quote);
 }
 
 function get_ids(data){
     IDs = JSON.parse(data);
-    on_click();
+    $("#next-quote").click(find_new_quote);
 }
