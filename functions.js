@@ -1,4 +1,3 @@
-
 // Array Remove - By John Resig (MIT Licensed)
 Array.prototype.remove = function(from, to) {
   var rest = this.slice((to || from) + 1 || this.length);
@@ -62,12 +61,27 @@ function rewrite_url(id) {
     history.pushState({ 'id': id }, document.title, id);
 }
 
+function on_click(){
+    $("#next-quote").click(find_new_quote);
+}
+function off_click(){
+    $("#next-quote").off("click");
+}
+
+function make_loading(){
+    $(".quote-text").html("...");
+    off_click();
+}
 
 function update_quote(ID){
-    loading = setTimeout(function(){ $(".quote-text").html("..."); }, loading_display_after);
+    loading = setTimeout(make_loading, loading_display_after);
     $.get("quote.php?id=" + ID, function(data){
+        // Stop loading
         clearTimeout(loading);
-        $(".quote-text").html(data); // Update text
+        on_click();
+        
+        // Update text
+        $(".quote-text").html(data); 
         current_quote = data
     });
 }
@@ -93,11 +107,10 @@ function find_new_quote(event){
 function get_ids_init(data){
     IDs = JSON.parse(data);
     find_new_quote();
-    $("#next-quote").click(find_new_quote);
+    on_click();
 }
 
-function get_ids_display(data){
+function get_ids(data){
     IDs = JSON.parse(data);
-    current_quote = $(".quote-text").html(); //solved via PHP
-    $("#next-quote").click(find_new_quote);
+    on_click();
 }
