@@ -26,7 +26,7 @@ if ((isset($_POST['text']) && !empty($_POST['text']))){
 		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="jqueryhotkeys.js"></script>
 		<script>
