@@ -28,12 +28,10 @@ if ((isset($_POST['text']) && !empty($_POST['text']))){
 		<link rel="stylesheet" href="css/style.css" />
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-		<script language="javascript">
-			$('#text').keydown(function(event){
-				if (event.which == 13 && event.ctrlKey) {
-					$('#addquote-form').submit();
-				};
-			});
+		<script>
+$('#text').keypress(function(e){ 
+if(e.which == 13 && e.ctrlKey){this.submit();} 
+});  
 		</script>
         <title>Добавить цитату</title>
 	</head>
