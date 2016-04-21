@@ -68,8 +68,8 @@ function find_new_quote(event){
     if (loading != null) return;
     
     if (IDs.length == 0){
-        //$(".quote-text").html(last_quote);
-        $.get("ids.php", get_ids_init);
+        $.get("ids.php", get_ids_init); //In circle
+        start_loading();
         return;
     }
 
@@ -81,32 +81,37 @@ function find_new_quote(event){
     update_quote(id);
 }
 
-function make_loading(){
+function display_loading(){
     $(".quote-text").html("...");
 }
 
+function start_loading(){
+    loading = setTimeout(display_loading, loading_display_after);
+}
+function stop_loading(){
+    clearTimeout(loading);
+    loading = null;
+}
+
+
 function update_quote(ID){
-    loading = setTimeout(make_loading, loading_display_after);
+    start_loading();
     $.get("quote.php?id=" + ID, function(data){
-        // Stop loading
-        clearTimeout(loading);
-        loading = null;
-        
-        // Update text
+        stop_loading();
         $(".quote-text").html(data); 
         current_quote = data
     });
 }
 
-//Enter to one of then
+//Entering to one of then (get_ids if all OK)
+
+function get_ids(data){
+    IDs = JSON.parse(data);
+    $("#next-quote").click(find_new_quote);
+}
 
 function get_ids_init(data){
     IDs = JSON.parse(data);
     find_new_quote();
-    $("#next-quote").click(find_new_quote);
-}
-
-function get_ids(data){
-    IDs = JSON.parse(data);
     $("#next-quote").click(find_new_quote);
 }

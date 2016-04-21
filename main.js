@@ -3,7 +3,6 @@ var loading;
 var current_quote;
 var target_id = false;
 var loading_display_after = 200; //ms
-var last_quote = "Кончились Т_Т. Топи F5."
 var share_image_url = document.location.origin + "/images/vk_repost.jpg";
 
 
