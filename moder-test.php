@@ -17,7 +17,7 @@ require 'db.php';
 		$stmt = $mysqli->prepare("SELECT * FROM quotes_main WHERE Active=0");        
         $stmt->execute();
         $res = $stmt->get_result();
-        while ($row = $res->fetch_assoc();) {
+        while ($row = $res->fetch_assoc()) {
 			echo json_encode($row, JSON_UNESCAPED_UNICODE);
 		}
 ?>
