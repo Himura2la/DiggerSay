@@ -7,8 +7,6 @@
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="main.js"></script>
-
         
         <title>Скажет диггер</title>
 	</head>
