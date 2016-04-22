@@ -62,6 +62,9 @@ h1{
 	min-width: 300px;
 	text-align: center;
 }
+.nav-arrow{
+	border-width: 0px;
+}
 .dig-say{
    	background-attachment: fixed;
 	background-repeat: no-repeat;

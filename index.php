@@ -48,7 +48,7 @@
                     <h1 class="quote-text"><?php echo $quote ?></h1>
                 </div> 
                 <div class="centralpicture">
-					<img src="images/nav-arrow-center.png" id="nav-arrow">
+					<img src="images/nav-arrow-center.png" class="nav-arrow">
 				</div> 
                 <h1 class="dig-say dig-say-text">Скажет диггер</h1>
             </div>

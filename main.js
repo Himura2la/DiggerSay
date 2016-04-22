@@ -28,10 +28,10 @@ $(function() {
     $("#share_ok").click(share_ok);
     
     
-    $("#nav-arrow").rotate({ 
+    $(".nav-arrow").rotate({ 
         bind: { 
             mouseover : function() { 
-                $(this).rotate({animateTo:60})
+                $(this).rotate({animateTo:45})
             },
             mouseout : function() { 
                 $(this).rotate({animateTo:0})
