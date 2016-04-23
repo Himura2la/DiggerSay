@@ -42,6 +42,7 @@
         <title>Скажет диггер</title>
 	</head>
 	<body>
+    <div id="noscrollbar1"><div id="noscrollbar2">
 		<a id="next-quote" href="#">
             <div>
                 <div class="quote-div"> 
@@ -79,5 +80,6 @@
                 </div>
             </a>
 		</div>
+    </div></div>
 	</body>
 </html>
