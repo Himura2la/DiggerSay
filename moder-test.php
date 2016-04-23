@@ -7,29 +7,35 @@
 		<link rel="stylesheet" href="css/green.min.css" />
 		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-		<link media="screen" href="css/style.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
 		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <title>Цитаты на модерации</title>
+	
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <title>Модерация цитат</title>
 	</head>
 	<body>
+    
+<?php if (isset($_POST['pwd']) && $_POST['pwd'] == 'Письки') { ?>
+
 		<div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 10px; padding-bottom: 10px;">
 			<div data-role="content">
 				<h1 class="quote-text">Цитаты на модерации</h1>
 				<ul data-role="listview" data-inset="true">
-<?php
-require 'db.php';
-		$stmt = $mysqli->prepare("SELECT * FROM quotes_main WHERE Active=0");        
-        $stmt->execute();
-        $res = $stmt->get_result();
-        while ($row = $res->fetch_assoc()) {
-			echo '\t\t\t\t<li>\n\t\t\t\t<a href="#enable" data-rel="dialog" data-transition="pop">';
-			echo "{$row['ID']}: {$row['Text']}\n"; 
-			echo '\t\t\t\t</a>\n\t\t\t\t<a href="#delete" data-rel="dialog" data-transition="pop" data-icon="delete"></a>'."\n";
-			echo "\t\t\t\t</li>\n";
-		}
-?>
+                
+                    <?php
+                    require 'db.php';
+
+                    $stmt = $mysqli->prepare("SELECT * FROM quotes_main WHERE Active=0");        
+                    $stmt->execute();
+                    $res = $stmt->get_result();
+                    while ($row = $res->fetch_assoc()) {
+                        echo "li><a href=\"#enable\" data-rel=\"dialog\" data-transition=\"pop\">";
+                        echo "{$row['ID']}: {$row['Text']}\n"; 
+                        echo "</a><a href=\"#delete\" data-rel=\"dialog\" data-transition=\"pop\" data-icon=\"delete\"></a>\n";
+                        echo "</li>\n";
+                    }?>
+                    
 				</ul>
 			</div>
 		</div>
@@ -47,6 +53,15 @@ require 'db.php';
 					<a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Отмена</a>
 			</div>
 		</div> 
+    
+<?php } else { ?>
 
+    <form method="post" action="#" id="addqoute-form">
+		<input type="text" name="pwd" id="pwd" placeholder="Нвзови пароль">
+		<input type="submit" value="Сказать">
+    </form>
+
+<?php }; ?>
+    
 	</body>
 </html>
