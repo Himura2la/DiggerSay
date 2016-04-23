@@ -24,10 +24,10 @@ require 'db.php';
         $stmt->execute();
         $res = $stmt->get_result();
         while ($row = $res->fetch_assoc()) {
-			echo '					<li>'."\n".'						<a href="#enable" data-rel="dialog" data-transition="pop">';
-			echo "							{$row['ID']}: {$row['Text']}\n"; 
-			echo '						</a>'."\n".'						<a href="#delete" data-rel="dialog" data-transition="pop" data-icon="delete"></a>'."\n";
-			echo "					</li>\n";
+			echo '\t\t\t\t<li>\n\t\t\t\t<a href="#enable" data-rel="dialog" data-transition="pop">';
+			echo "{$row['ID']}: {$row['Text']}\n"; 
+			echo '\t\t\t\t</a>\n\t\t\t\t<a href="#delete" data-rel="dialog" data-transition="pop" data-icon="delete"></a>'."\n";
+			echo "\t\t\t\t</li>\n";
 		}
 ?>
 				</ul>
