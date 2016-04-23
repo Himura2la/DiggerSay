@@ -15,10 +15,10 @@
         <title>Модерация цитат</title>
 	</head>
 	<body>
+		<div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 10px; padding-bottom: 10px;">
     
 <?php if (isset($_POST['pwd']) && $_POST['pwd'] == 'Письки') { ?>
 
-		<div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 10px; padding-bottom: 10px;">
 			<div data-role="content">
 				<h1 class="quote-text">Цитаты на модерации</h1>
 				<ul data-role="listview" data-inset="true">
@@ -56,10 +56,11 @@
     
 <?php } else { ?>
 
-    <form method="post" action="#" id="addqoute-form">
-		<input type="text" name="pwd" id="pwd" placeholder="Нвзови пароль">
-		<input type="submit" value="Сказать">
-    </form>
+            <form method="post" action="#" id="addqoute-form">
+                <input type="text" name="pwd" id="pwd" placeholder="Нвзови пароль">
+                <input type="submit" value="Сказать">
+            </form>
+        </div> <!--data-role="page"-->
 
 <?php }; ?>
     
