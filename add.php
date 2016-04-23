@@ -22,34 +22,56 @@
 <?php
 require 'db.php';
 
-if ((isset($_POST['text']) && !empty($_POST['text']))){
+if (isset($_POST['text']) && !empty($_POST['text'])){
     $text = $_POST['text'];
+    
+    if (isset($_POST['pwd']) && $_POST['pwd'] == 'Письки')
+        $active = '1';
+    else 
+        $active = '0';
     
 	if(isset($_POST['author'])){
 		$author = $_POST['author'];
-        $stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES (?, ?, '0')");        
-        $stmt->bind_param("ss", $author, $text);
+        $stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES (?, ?, ?)");        
+        $stmt->bind_param("sss", $author, $text, $active);
 	} else {
-        $stmt = $mysqli->prepare("INSERT INTO quotes_main (text, Active) VALUES (?, '0')");        
-        $stmt->bind_param("s", $text);
+        $stmt = $mysqli->prepare("INSERT INTO quotes_main (text, Active) VALUES (?, ?)");        
+        $stmt->bind_param("ss", $text, $active);
     }
 	$stmt->execute();
 	$stmt->close();
 ?>
 
-    <h1 class="quote-text">Цитата отправлена на модерацию. Вдруг, диггер такого не говорил?</h1>
-    <p><a href="/">Выйти</a></p>
-    <p><a href="/add.php">Еще одну</a></p>
+    <h1 class="quote-text">Цитата отправлена на диггерскую проверу</h1>
+    
+    <div class="addquotediv">
+    <div class="add-left-right">
+        <h2 class="addquotetext"><a href="/">выйти</a> </h2>
+    </div>
+    <div class="add-left-right">
+        <img alt="+" src="images/bm_1460708097.jpeg" />
+    </div>
+    <div class="add-left-right">
+        <h2 class="addquotetext"> <a href="/add.php">отправить еще</a></h2>
+    </div>
+    
 
 <?php } else { ?>	
 
 	<h1 class="quote-text">Добавить цитату</h1>
 
     <form method="post" action="add.php" id="addqoute-form">
-		<label for="fname" class="ui-hidden-accessible">Имя</label>
+		<!--label for="fname" class="ui-hidden-accessible">Имя</label-->
 		<input type="text" name="author" id="author" placeholder="Имя... (не обязательно)">
-		<label for="textarea" class="ui-hidden-accessible">Цитата:</label>
+		<!--label for="textarea" class="ui-hidden-accessible">Цитата:</label-->
 		<textarea name="text" id="text" rows="5" placeholder="Текст..."></textarea>
+        
+        <?php if ($_GET['siski']) { ?>
+		<!--label for="fname" class="ui-hidden-accessible">Пароль</label-->
+		<input type="text" name="pwd" id="pwd" placeholder="Пароль">
+        <?php }; ?>
+        
+        
 		<input type="submit" value="...сказал диггер">
     </form>
     
