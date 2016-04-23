@@ -9,32 +9,47 @@
 		
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
-        <script type="text/javascript" src="main.js"></script>
-
+		<script type="text/javascript" src="jqueryrotate.2.1.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+        
+		<!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
     $quote = "";
+    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    
     if (isset($_GET['id'])){
         $id = $_GET['id'];
-        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        
         $quote = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?id=" . $id);
+    } else {
+        $out = file_get_contents("http://$_SERVER[HTTP_HOST]/randomquote.php?full");
+        $out = json_decode($out, true);
+        $id = $out['Id'];
+        $quote = $out['Text'];
+        echo "\t\t<script type=\"text/javascript\">\n";
+        echo "\t\t    $(function() {rewrite_url(". $id .");});\n";
+        echo "\t\t</script>\n";
+    }
         
         echo "\t\t<meta property=\"og:url\" content=\"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]\" />\n";
         echo "\t\t<meta property=\"og:title\" content=\"". $quote ."\" />\n";
         echo "\t\t<meta property=\"og:image\" content=\"http://$_SERVER[HTTP_HOST]/images/vk_repost.jpg\" />\n";
         echo "\t\t<meta property=\"og:description\" content=\"Скажет диггер\" />\n";
-    }
 ?>
+    
+
+        <script type="text/javascript" src="main.js"></script> <!-- порядок важен! -->
         
         <title>Скажет диггер</title>
 	</head>
 	<body>
 		<a id="next-quote" href="#">
             <div>
-                <div id="quote"> 
+                <div class="quote-div"> 
                     <h1 class="quote-text"><?php echo $quote ?></h1>
                 </div> 
-                <div id="centralpicture"></div> 
+                <div class="centralpicture">
+					<img src="images/nav-arrow-center.png" class="nav-arrow">
+				</div> 
                 <h1 class="dig-say dig-say-text">Скажет диггер</h1>
             </div>
         </a>
@@ -46,7 +61,6 @@
 				<a id="share_tw" href="#"><div class="soc3"></div></a>
 				<a id="share_gp" href="#"><div class="soc4"></div></a>
 				<a id="share_ok" href="#"><div class="soc5"></div></a>
-				<!--a href="rss.xml"><div class="soc6"></div></a-->
 			</div> 
 		</div>
 		<div class="clear"></div>
