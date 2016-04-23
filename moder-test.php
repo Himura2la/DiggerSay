@@ -55,13 +55,11 @@
 		</div> 
     
 <?php } else { ?>
-
             <form method="post" action="#" id="addqoute-form">
-                <input type="text" name="pwd" id="pwd" placeholder="Нвзови пароль">
+                <input type="text" name="pwd" id="pwd" placeholder="Назови пароль">
                 <input type="submit" value="Сказать">
             </form>
         </div> <!--data-role="page"-->
-
 <?php }; ?>
     
 	</body>
