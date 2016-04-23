@@ -44,17 +44,18 @@ if (isset($_POST['text']) && !empty($_POST['text'])){
 
     <h1 class="quote-text">Цитата отправлена на диггерскую проверу</h1>
     
-    <div class="addquotediv">
-    <div class="add-left-right">
-        <h2 class="addquotetext"><a href="/">выйти</a> </h2>
+    <div class="div-center">
+        <div class="addquotediv">
+        <div class="add-left-right">
+            <h2 class="addquotetext"><a href="/">выйти</a> </h2>
+        </div>
+        <div class="add-left-right">
+            <img alt="+" src="images/bm_1460708097.jpeg" />
+        </div>
+        <div class="add-left-right">
+            <h2 class="addquotetext"> <a href="/add.php">отправить еще</a></h2>
+        </div>
     </div>
-    <div class="add-left-right">
-        <img alt="+" src="images/bm_1460708097.jpeg" />
-    </div>
-    <div class="add-left-right">
-        <h2 class="addquotetext"> <a href="/add.php">отправить еще</a></h2>
-    </div>
-    
 
 <?php } else { ?>	
 
@@ -64,7 +65,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])){
 		<!--label for="fname" class="ui-hidden-accessible">Имя</label-->
 		<input type="text" name="author" id="author" placeholder="Имя... (не обязательно)">
 		<!--label for="textarea" class="ui-hidden-accessible">Цитата:</label-->
-		<textarea name="text" id="text" rows="5" placeholder="Текст..."></textarea>
+		<textarea name="text" id="text" placeholder="Текст..."></textarea>
         
         <?php if (isset($_GET['siski'])) { ?>
 		<!--label for="fname" class="ui-hidden-accessible">Пароль</label-->
