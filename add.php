@@ -47,7 +47,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])){
     <div class="div-center">
         <div class="addquotediv">
         <div class="add-left-right">
-            <h2 class="addquotetext"><a href="/">выйти</a> </h2>
+            <h2 class="addquotetext"><a href="/">выйти</a></h2>
         </div>
         <div class="add-left-right">
             <img alt="+" src="images/bm_1460708097.jpeg" />
@@ -65,7 +65,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])){
 		<!--label for="fname" class="ui-hidden-accessible">Имя</label-->
 		<input type="text" name="author" id="author" placeholder="Имя... (не обязательно)">
 		<!--label for="textarea" class="ui-hidden-accessible">Цитата:</label-->
-		<textarea name="text" id="text" placeholder="Текст..."></textarea>
+		<textarea name="text" id="text" rows="3" placeholder="Текст..."></textarea>
         
         <?php if (isset($_GET['siski'])) { ?>
 		<!--label for="fname" class="ui-hidden-accessible">Пароль</label-->
