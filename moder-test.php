@@ -30,7 +30,7 @@
                     $stmt->execute();
                     $res = $stmt->get_result();
                     while ($row = $res->fetch_assoc()) {
-                        echo "li><a href=\"#enable\" data-rel=\"dialog\" data-transition=\"pop\">";
+                        echo "<li><a href=\"#enable\" data-rel=\"dialog\" data-transition=\"pop\">";
                         echo "{$row['ID']}: {$row['Text']}\n"; 
                         echo "</a><a href=\"#delete\" data-rel=\"dialog\" data-transition=\"pop\" data-icon=\"delete\"></a>\n";
                         echo "</li>\n";
