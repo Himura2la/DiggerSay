@@ -64,8 +64,8 @@
 			</div> 
 		</div>
 		<div class="clear"></div>
-		<!--div class="div-center">
-			<a href="/monterskaya">
+		<div class="div-center">
+			<a href="/add.php">
                 <div class="addquotediv">
                     <div class="add-left-right">
                         <h2 class="addquotetext">добавить </h2>
@@ -78,6 +78,6 @@
                     </div>
                 </div>
             </a>
-		</div-->
+		</div>
 	</body>
 </html>

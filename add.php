@@ -1,20 +1,3 @@
-<?php
-require 'db.php';
-
-$author = '';
-$text = 'Добавить цитату';
-
-if ((isset($_POST['text']) && !empty($_POST['text']))){
-    $text = $_POST['text'];
-	if(isset($_POST['author'])){
-		$author = $_POST['author'];
-	}
-	$stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES (?, ?, '0')");        
-	$stmt->bind_param("ss", $author, $text);
-	$stmt->execute();
-	$stmt->close();
-}
-?>	
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -35,7 +18,32 @@ if ((isset($_POST['text']) && !empty($_POST['text']))){
 	<body>
 <div data-role="page" style="max-width: 500px; margin: 0 auto; position: relative; padding-top: 30px; padding-bottom: 20px;">
   <div data-role="content">
-	<h1 class="quote-text"><?php echo $text ?></h1>
+
+<?php
+require 'db.php';
+
+if ((isset($_POST['text']) && !empty($_POST['text']))){
+    $text = $_POST['text'];
+    
+	if(isset($_POST['author'])){
+		$author = $_POST['author'];
+        $stmt = $mysqli->prepare("INSERT INTO quotes_main (Author, text, Active) VALUES (?, ?, '0')");        
+        $stmt->bind_param("ss", $author, $text);
+	} else {
+        $stmt = $mysqli->prepare("INSERT INTO quotes_main (text, Active) VALUES (?, '0')");        
+        $stmt->bind_param("s", $text);
+    }
+	$stmt->execute();
+	$stmt->close();
+?>
+
+    <h1 class="quote-text">Цитата отправлена на модерацию. Вдруг, диггер такого не говорил?</h1>
+    <p><a href="/">Выйти</a></p>
+    <p><a href="/add.php">Еще одну</a></p>
+
+<?php } else { ?>	
+
+	<h1 class="quote-text">Добавить цитату</h1>
 
     <form method="post" action="add.php" id="addqoute-form">
 		<label for="fname" class="ui-hidden-accessible">Имя</label>
@@ -44,8 +52,9 @@ if ((isset($_POST['text']) && !empty($_POST['text']))){
 		<textarea name="text" id="text" rows="5" placeholder="Текст..."></textarea>
 		<input type="submit" value="...сказал диггер">
     </form>
+    
+<?php }; ?>
   </div>
 </div>
-
-	</body>
+</body>
 </html>
