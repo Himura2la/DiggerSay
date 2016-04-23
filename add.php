@@ -66,7 +66,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])){
 		<!--label for="textarea" class="ui-hidden-accessible">Цитата:</label-->
 		<textarea name="text" id="text" rows="5" placeholder="Текст..."></textarea>
         
-        <?php if ($_GET['siski']) { ?>
+        <?php if (isset($_GET['siski'])) { ?>
 		<!--label for="fname" class="ui-hidden-accessible">Пароль</label-->
 		<input type="text" name="pwd" id="pwd" placeholder="Пароль">
         <?php }; ?>
