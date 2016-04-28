@@ -100,7 +100,9 @@ function update_quote(ID){
         stop_loading();
         data = JSON.parse(data);
         $(".quote-text").html(data['Text']);
-        $(".author-text").html(data['Author']);
+        if(data['Author']!="")
+        $(".author-text").html('&copy;&nbsp;'+data['Author']);
+        else $(".author-text").html("");
         current_quote = data['Text']
     });
 }
