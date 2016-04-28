@@ -20,7 +20,10 @@
     
     if (isset($_GET['id'])){
         $id = $_GET['id'];
-        $quote = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?id=" . $id);
+        $out = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?full&id=" . $id);
+		$out = json_decode($out, true);
+		$quote = $out['Text'];
+		$author = $out['Author'];
     } else {
         $out = file_get_contents("http://$_SERVER[HTTP_HOST]/randomquote.php?full");
         $out = json_decode($out, true);
