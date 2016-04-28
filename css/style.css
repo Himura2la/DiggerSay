@@ -63,6 +63,10 @@ h1{
 	text-decoration: none;
 	vertical-align: middle;
 }
+.author-text{
+	text-align: right;
+	padding-right: 1em;
+}
 .centralpicture{
    	background-attachment: inherit;
 	background-repeat: no-repeat;

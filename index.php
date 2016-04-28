@@ -15,6 +15,7 @@
 		<!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
     $quote = "";
+	$author = "";
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     
     if (isset($_GET['id'])){
@@ -25,6 +26,7 @@
         $out = json_decode($out, true);
         $id = $out['Id'];
         $quote = $out['Text'];
+		$author = $out['Author'];
         echo "\t\t<script type=\"text/javascript\">\n";
         echo "\t\t    $(function() {rewrite_url(". $id .");});\n";
         echo "\t\t</script>\n";
@@ -46,6 +48,7 @@
             <div>
                 <div class="quote-div"> 
                     <h1 class="quote-text"><?php echo $quote ?></h1>
+					<p class="author-text"><?php if (!empty($author)){echo '&copy;',$author;}?></p>
                 </div> 
                 <div class="centralpicture">
 					<img src="images/nav-arrow-center.png" class="nav-arrow">
