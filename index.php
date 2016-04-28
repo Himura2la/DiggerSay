@@ -48,7 +48,7 @@
             <div>
                 <div class="quote-div"> 
                     <h1 class="quote-text"><?php echo $quote ?></h1>
-					<p class="author-text"><?php if (!empty($author)){echo '&copy;',$author;}?></p>
+					<p class="author-text"><?php if (!empty($author)){echo '&copy;',$author;}?> </p>
                 </div> 
                 <div class="centralpicture">
 					<img src="images/nav-arrow-center.png" class="nav-arrow">
