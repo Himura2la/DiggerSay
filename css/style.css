@@ -28,6 +28,9 @@ a:active	{
 a:hover	{
 	text-decoration: none;
 	color: #267f4c; }
+a img {
+	border: none;
+}
 h1{
 	font-size: 48px;
 }
