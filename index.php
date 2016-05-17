@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7">
+		<meta name="viewport" content="width=device-width, initial-scale=0.7">
 		<link media="screen" href="css/style.css" type="text/css" rel="stylesheet" />
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
