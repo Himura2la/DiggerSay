@@ -42,18 +42,18 @@ if (isset($_POST['text']) && !empty($_POST['text'])){
 	$stmt->close();
 ?>
 
-    <h1 class="quote-text">Цитата отправлена на диггерскую проверу</h1>
+    <h1 class="quote-text">Цитата отправлена на диггерскую проверку</h1>
     
     <div class="div-center">
         <div class="addquotediv">
         <div class="add-left-right">
-            <h2 class="addquotetext"><a href="/">выйти</a></h2>
+            <a href="/"><h2 class="addquotetext">выйти</h2></a>
         </div>
         <div class="add-left-right">
             <img alt="+" src="images/bm_1460708097.jpeg" />
         </div>
         <div class="add-left-right">
-            <h2 class="addquotetext"> <a href="/add.php">отправить еще</a></h2>
+            <a href="/add.php"><h2 class="addquotetext"> отправить еще</h2></a>
         </div>
     </div>
 
