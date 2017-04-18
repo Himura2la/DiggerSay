@@ -1,14 +1,14 @@
 <?php
 
-$bg = new Imagick("images/vk_repost.jpg");
+$image = new Imagick("images/vk_repost.jpg");
 $draw = new ImagickDraw();
 
 $draw->setFillColor('#267f4c');
 
 $draw->setFont('font/Ubuntu-C.ttf');
-$draw->setFontSize( 30 );
+$draw->setFontSize(45);
 
-$image->annotateImage($draw, 10, 45, 0, 'nya');
+$image->annotateImage($draw, 10, 150, 0, $_GET["t"]);
 
 $image->setImageFormat('png');
 
