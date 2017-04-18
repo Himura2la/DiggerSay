@@ -27,7 +27,7 @@ function share_ok(event) {
 };
 function share_fb(event) {
     url  = 'http://www.facebook.com/sharer.php?s=100';
-    url += '&p[title]='     + encodeURIComponent("Диггерская цитата");
+    url += '&p[title]='     + encodeURIComponent("Р”РёРіРіРµСЂСЃРєР°СЏ С†РёС‚Р°С‚Р°");
     url += '&p[summary]='   + encodeURIComponent(current_quote);
     url += '&p[url]='       + encodeURIComponent(document.location.href);
     url += '&p[images][0]=' + encodeURIComponent(share_image_url);
