@@ -27,7 +27,7 @@ function share_ok(event) {
 };
 function share_fb(event) {
     url  = 'http://www.facebook.com/sharer.php?s=100';
-    url += '&p[title]='     + encodeURIComponent("Диггерская цитата");
+    url += '&p[title]='     + encodeURIComponent("Р”РёРіРіРµСЂСЃРєР°СЏ С†РёС‚Р°С‚Р°");
     url += '&p[summary]='   + encodeURIComponent(current_quote);
     url += '&p[url]='       + encodeURIComponent(document.location.href);
     url += '&p[images][0]=' + encodeURIComponent(share_image_url);
@@ -111,11 +111,13 @@ function update_quote(ID){
 
 function get_ids(data){
     IDs = JSON.parse(data);
+    array_remove(IDs, IDs.indexOf(id_from_url()))
     $("#next-quote").click(find_new_quote);
 }
 
 function get_ids_init(data){
     IDs = JSON.parse(data);
+    array_remove(IDs, IDs.indexOf(id_from_url()))
     find_new_quote();
     $("#next-quote").click(find_new_quote);
 }
