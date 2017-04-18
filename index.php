@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7">
+		<meta name="viewport" content="width=device-width, initial-scale=0.7">
 		<link media="screen" href="css/style.css" type="text/css" rel="stylesheet" />
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
@@ -15,16 +15,21 @@
 		<!-- Разметка должна быть в разметке, а скрипты в отдельных .js файлах!!! -->
 <?php
     $quote = "";
+	$author = "";
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     
     if (isset($_GET['id'])){
         $id = $_GET['id'];
-        $quote = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?id=" . $id);
+        $out = file_get_contents("http://$_SERVER[HTTP_HOST]/quote.php?full&id=" . $id);
+		$out = json_decode($out, true);
+		$quote = $out['Text'];
+		$author = $out['Author'];
     } else {
         $out = file_get_contents("http://$_SERVER[HTTP_HOST]/randomquote.php?full");
         $out = json_decode($out, true);
         $id = $out['Id'];
         $quote = $out['Text'];
+		$author = $out['Author'];
         echo "\t\t<script type=\"text/javascript\">\n";
         echo "\t\t    $(function() {rewrite_url(". $id .");});\n";
         echo "\t\t</script>\n";
@@ -41,11 +46,12 @@
         
         <title>Скажет диггер</title>
 	</head>
-	<body>
+	<body><div id="noscrollbar">
 		<a id="next-quote" href="#">
             <div>
                 <div class="quote-div"> 
                     <h1 class="quote-text"><?php echo $quote ?></h1>
+					<p class="author-text"><?php if (!empty($author)){echo '&copy;&nbsp;',$author;}?> </p>
                 </div> 
                 <div class="centralpicture">
 					<img src="images/nav-arrow-center.png" class="nav-arrow">
@@ -64,8 +70,8 @@
 			</div> 
 		</div>
 		<div class="clear"></div>
-		<!--div class="div-center">
-			<a href="/monterskaya">
+		<div class="div-center">
+			<a href="/add.php">
                 <div class="addquotediv">
                     <div class="add-left-right">
                         <h2 class="addquotetext">добавить </h2>
@@ -78,6 +84,6 @@
                     </div>
                 </div>
             </a>
-		</div-->
-	</body>
+		</div>
+	</div></body>
 </html>

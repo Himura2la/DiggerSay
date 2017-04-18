@@ -96,10 +96,14 @@ function stop_loading(){
 
 function update_quote(ID){
     start_loading();
-    $.get("quote.php?id=" + ID, function(data){
+    $.get("quote.php?full&id=" + ID, function(data){
         stop_loading();
-        $(".quote-text").html(data); 
-        current_quote = data
+        data = JSON.parse(data);
+        $(".quote-text").html(data['Text']);
+        if(data['Author']!="")
+        $(".author-text").html('&copy;&nbsp;'+data['Author']);
+        else $(".author-text").html("");
+        current_quote = data['Text']
     });
 }
 
