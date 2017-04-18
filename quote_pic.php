@@ -44,12 +44,27 @@ $draw->setFont('font/Ubuntu-C.ttf');
 $draw->setFontSize(45);
 
 list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $_GET["t"], $width-20);
+
+if (count($lines) > 5) {
+    $last_line = $lines[4];
+    $words = preg_split('%\s%', $last_line, -1, PREG_SPLIT_NO_EMPTY);
+    $last_line = "";
+    for($i = 0; $i < count($words) - 1; $i++)
+        $last_line .= $words[$i] . " ";
+    $last_line .= "...";
+    $lines[4] = $last_line;
+    for($i = 5; $i < count($lines); $i++)
+        $lines[$i] = "";
+}
+
 for($i = 0; $i < count($lines); $i++)
     $image->annotateImage($draw, $width/2, $lineHeight + $i*$lineHeight, 0, $lines[$i]);
 
 $image->setImageFormat('png');
 
-header('Content-type: image/png');
-echo $image;
+//header('Content-type: image/png');
+//echo $image;
+
+echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
 
 ?>
