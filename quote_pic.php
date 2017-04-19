@@ -29,7 +29,7 @@ function wordWrapAnnotation($image, $draw, $text, $maxWidth) {
             $i = 0;
         }   
     }   
-    return array($lines, $lineHeight);
+    return array($lines, $lineHeight-1);
 }
 
 
@@ -37,11 +37,13 @@ $image = new Imagick("images/vk_repost.jpg");
 $width = $image->getImageWidth();
 $draw = new ImagickDraw();
 
-$draw->setFillColor('#267f4c');
+$draw->setFillColor('#29834f');
 $draw->setTextAlignment(Imagick::ALIGN_CENTER);
 
 $draw->setFont('font/Ubuntu-C.ttf');
 $draw->setFontSize(45);
+
+$draw->setTextUnderColor('#b8d331');
 
 list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $_GET["t"], $width-20);
 
