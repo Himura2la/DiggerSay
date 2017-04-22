@@ -6,7 +6,7 @@ function array_remove(array, from, to) {
 };
 
 function share_image_url(id){
-    return document.location.origin + "/quote_pic.php?q=" + id;
+    return document.location.origin + "/quote_pic.php?q=" + id_from_url();
 }
 
 // https://habrahabr.ru/post/156185/
@@ -19,7 +19,7 @@ function share_vk(event) {
     url += 'url='          + encodeURIComponent(document.location.href);
     url += '&title='       + encodeURIComponent(current_quote);
     url += '&description=' + encodeURIComponent(document.title);
-    url += '&image='       + encodeURIComponent(share_image_url(current_quote));
+    url += '&image='       + encodeURIComponent(share_image_url());
     url += '&noparse=true';
     share(event, url);
 };
@@ -34,7 +34,7 @@ function share_fb(event) {
     url += '&p[title]='     + encodeURIComponent("Диггерская цитата");
     url += '&p[summary]='   + encodeURIComponent(current_quote);
     url += '&p[url]='       + encodeURIComponent(document.location.href);
-    url += '&p[images][0]=' + encodeURIComponent(share_image_url(current_quote));
+    url += '&p[images][0]=' + encodeURIComponent(share_image_url());
     share(event, url);
 };
 function share_tw(event) {
