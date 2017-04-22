@@ -9,20 +9,12 @@
     @return an array of lines and line heights
 */
 
-$lines_fsize = array(
-    1 => 60,
-    2 => 50
-);
-
-$lines_shift = array(
-    1 => 105,
-    2 => 90 
-);
+$fsizes = array(60, 50);
 
 if (!empty($_GET['f']))
     $fsize = $_GET['f'];
 else
-    $fsize = $lines_fsize[1];
+    $fsize = $fsizes[0];
 
 
 function wordWrapAnnotation($image, $draw, $text, $maxWidth) {   
@@ -59,7 +51,6 @@ $draw->setFillColor('#29834f');
 $draw->setTextAlignment(Imagick::ALIGN_CENTER);
 
 $draw->setFont('font/Ubuntu-C.ttf');
-$draw->setFontSize($fsize);
 
 $draw->setTextUnderColor('#b8d331');
 
@@ -75,9 +66,14 @@ if (!empty($_GET['q'])) {
 } else {
     $text = $_GET['t'];
 }
-$text = str_replace('Р', 'P', $text);
+$text = str_replace('Р', 'P', $text); // imageMAGIC!!! Cyrillic R breaks it.
 
-list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
+$fsize = 100;
+while($lines > 5 && $fsize > 50) {
+    $fsize -= 5;
+    $draw->setFontSize($fsize);
+    list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
+}
 
 $static_shift = round(1.16586 - 0.191563 * $lineHeight);
 
