@@ -41,11 +41,14 @@ $draw->setFillColor('#29834f');
 $draw->setTextAlignment(Imagick::ALIGN_CENTER);
 
 $draw->setFont('font/Ubuntu-C.ttf');
-$draw->setFontSize(45);
+$draw->setFontSize($_GET['f']);
 
 $draw->setTextUnderColor('#b8d331');
 
-list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $_GET["t"], $width-20);
+$text = $_GET["t"];
+$text = str_replace("Р", "P", $text);
+
+list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
 
 if (count($lines) > 5) {
     $last_line = $lines[4];
@@ -60,13 +63,13 @@ if (count($lines) > 5) {
 }
 
 for($i = 0; $i < count($lines); $i++)
-    $image->annotateImage($draw, $width/2, $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
+    $image->annotateImage($draw, $width/2, $_GET['s'] + $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
 
 $image->setImageFormat('png');
 
-//header('Content-type: image/png');
-//echo $image;
+header('Content-type: image/png');
+echo $image;
 
-echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
+//echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
 
 ?>
