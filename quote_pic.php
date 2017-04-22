@@ -79,12 +79,6 @@ $text = str_replace('Р', 'P', $text);
 
 list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
 
-if (!empty($_GET['s']))
-    $shift = $_GET['s'];
-else {
-    $shift = round(($height - $lineHeight * count($lines))/ 2);
-}
-
 $static_shift = round(1.16586 - 0.191563 * $lineHeight);
 
 if (count($lines) > 5) {
@@ -97,6 +91,12 @@ if (count($lines) > 5) {
     $lines[4] = $last_line;
     for($i = 5; $i < count($lines); $i++)
         $lines[$i] = "";
+}
+
+if (!empty($_GET['s']))
+    $shift = $_GET['s'];
+else {
+    $shift = round(($height - $lineHeight * count($lines))/ 2);
 }
 
 for($i = 0; $i < count($lines); $i++)
