@@ -89,8 +89,7 @@ if (count($lines) > 5) {
         $last_line .= $words[$i] . " ";
     $last_line .= "...";
     $lines[4] = $last_line;
-    for($i = 5; $i < count($lines); $i++)
-        $lines[$i] = "";
+    array_splice($lines, 5, count($lines)-5)
 }
 
 if (!empty($_GET['s']))
