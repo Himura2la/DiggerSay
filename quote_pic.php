@@ -61,9 +61,11 @@ if (!empty($_GET['q'])) {
 }
 $text = str_replace('Р', 'P', $text); // imageMAGIC!!! Cyrillic R breaks it.
 
-if (!empty($_GET['f']))
+if (!empty($_GET['f'])) {
     $fsize = $_GET['f'];
-else {
+    $draw->setFontSize($fsize);
+    list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
+} else {
     $fsize = 100;
     $n_lines = 6;
     while($n_lines > 5 && $fsize > 50) {
