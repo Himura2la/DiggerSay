@@ -1,2 +1,1 @@
-# DiggerSay
-Our humble website with digger's quotes is published [here on Azure](http://diggerquote.azurewebsites.net/). Feel free to improve.
+# Эта ветка развёртывается на [http://digsay.azurewebsites.net](http://digsay.azurewebsites.net) - В ПРОДАКШН!!!
