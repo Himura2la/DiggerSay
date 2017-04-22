@@ -86,6 +86,8 @@ else {
 }
 echo "lh:" . $lineHeight . ", shift:" . $shift . "<br>";
 
+$static_shift = round(1.16586 - 0.191563 * $lineHeight);
+
 if (count($lines) > 5) {
     $last_line = $lines[4];
     $words = preg_split('%\s%', $last_line, -1, PREG_SPLIT_NO_EMPTY);
@@ -99,7 +101,7 @@ if (count($lines) > 5) {
 }
 
 for($i = 0; $i < count($lines); $i++)
-    $image->annotateImage($draw, $width/2, $shift + $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
+    $image->annotateImage($draw, $width/2, $shift + $static_shift + $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
 
 $image->setImageFormat('png');
 
