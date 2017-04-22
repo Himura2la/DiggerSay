@@ -69,6 +69,7 @@ if (!empty($_GET['q'])) {
 $text = str_replace('Р', 'P', $text); // imageMAGIC!!! Cyrillic R breaks it.
 
 $fsize = 100;
+$lines = 0;
 while($lines > 5 && $fsize > 50) {
     $fsize -= 5;
     $draw->setFontSize($fsize);
