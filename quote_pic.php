@@ -8,6 +8,27 @@
     @param maxWidth the maximum width in pixels for your wrapped "virtual" text box
     @return an array of lines and line heights
 */
+
+$lines_fsize = array(
+    1 => 60,
+    2 => 50
+);
+
+$lines_shift = array(
+    1 => 105,
+    2 => 90 
+);
+
+if (!empty($_GET['f']))
+    $fsize = $lines_fsize[1];
+else
+    $fsize = $_GET['f'];
+
+if (!empty($_GET['s']))
+    $shift = $lines_shift[1];
+else
+    $fsize = $_GET['s'];
+
 function wordWrapAnnotation($image, $draw, $text, $maxWidth) {   
     $text = trim($text);
     $words = preg_split('%\s%', $text, -1, PREG_SPLIT_NO_EMPTY);
@@ -41,7 +62,7 @@ $draw->setFillColor('#29834f');
 $draw->setTextAlignment(Imagick::ALIGN_CENTER);
 
 $draw->setFont('font/Ubuntu-C.ttf');
-$draw->setFontSize($_GET['f']);
+$draw->setFontSize($fsize);
 
 $draw->setTextUnderColor('#b8d331');
 
@@ -74,7 +95,7 @@ if (count($lines) > 5) {
 }
 
 for($i = 0; $i < count($lines); $i++)
-    $image->annotateImage($draw, $width/2, $_GET['s'] + $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
+    $image->annotateImage($draw, $width/2, $shift + $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
 
 $image->setImageFormat('png');
 
