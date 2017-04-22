@@ -70,6 +70,7 @@ if (!empty($_GET['f'])) {
     $fsize = 100;
     $lineHeight = 900;
     while($n_lines > 5 && $fsize > 50 && $lineHeight * $n_lines > $height-20) {
+        echo "enter: n_lines" . $n_lines . "; fsize=" . $fsize . "lh=" . $lineHeight . "<br>";
         $fsize -= 5;
         $draw->setFontSize($fsize);
         list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
@@ -101,8 +102,8 @@ for($i = 0; $i < count($lines); $i++)
 
 $image->setImageFormat('png');
 
-header('Content-type: image/png'); echo $image;
+//header('Content-type: image/png'); echo $image;
 
-//echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
+echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
 
 ?>
