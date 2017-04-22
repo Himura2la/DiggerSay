@@ -60,7 +60,7 @@ if (count($lines) > 5) {
 }
 
 for($i = 0; $i < count($lines); $i++)
-    $image->annotateImage($draw, $width/2, $lineHeight + $i*$lineHeight, 0, $lines[$i]);
+    $image->annotateImage($draw, $width/2, $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");
 
 $image->setImageFormat('png');
 
