@@ -9,13 +9,6 @@
     @return an array of lines and line heights
 */
 
-$fsizes = array(60, 50);
-
-if (!empty($_GET['f']))
-    $fsize = $_GET['f'];
-else
-    $fsize = $fsizes[0];
-
 
 function wordWrapAnnotation($image, $draw, $text, $maxWidth) {   
     $text = trim($text);
@@ -68,12 +61,17 @@ if (!empty($_GET['q'])) {
 }
 $text = str_replace('Р', 'P', $text); // imageMAGIC!!! Cyrillic R breaks it.
 
-$fsize = 100;
-$lines = 6;
-while($lines > 5 && $fsize > 50) {
-    $fsize -= 5;
-    $draw->setFontSize($fsize);
-    list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
+if (!empty($_GET['f']))
+    $fsize = $_GET['f'];
+else {
+    $fsize = 100;
+    $n_lines = 6;
+    while($n_lines > 5 && $fsize > 50) {
+        $fsize -= 5;
+        $draw->setFontSize($fsize);
+        list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
+        $n_lines = count($lines);
+    }
 }
 
 $static_shift = round(1.16586 - 0.191563 * $lineHeight);
