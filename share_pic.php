@@ -90,11 +90,8 @@ if (count($lines) > 5) {
     array_splice($lines, 5, count($lines)-5);
 }
 
-if (!empty($_GET['s']))
-    $shift = $_GET['s'];
-else {
-    $shift = round(($height - $lineHeight * count($lines))/ 2);
-}
+
+$shift = round(($height - $lineHeight * count($lines))/ 2);
 
 for($i = 0; $i < count($lines); $i++)
     $image->annotateImage($draw, $width/2, $shift + $static_shift + $lineHeight + $i*$lineHeight, 0, " " . $lines[$i] . " ");

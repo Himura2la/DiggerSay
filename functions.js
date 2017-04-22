@@ -6,7 +6,7 @@ function array_remove(array, from, to) {
 };
 
 function share_image_url(id){
-    return document.location.origin + "/quote_pic.php?q=" + id_from_url();
+    return document.location.origin + "/share_pic.php?q=" + id_from_url();
 }
 
 // https://habrahabr.ru/post/156185/
