@@ -82,7 +82,7 @@ list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
 if (!empty($_GET['s']))
     $shift = $_GET['s'];
 else {
-    $shift = ($height - $lineHeight * count($lines)) % 2;
+    $shift = intdiv($height - $lineHeight * count($lines), 2);
 }
 echo $shift;
 
