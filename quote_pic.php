@@ -45,8 +45,17 @@ $draw->setFontSize($_GET['f']);
 
 $draw->setTextUnderColor('#b8d331');
 
-$text = $_GET["t"];
-$text = str_replace("Р", "P", $text);
+if (!empty($_GET['q'])) {
+    $id = $_GET['q'];
+    $stmt = $mysqli->prepare("SELECT Text FROM quotes_main WHERE ID=?");
+    $stmt->bind_param("d", $id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $text = $res->fetch_assoc()['Text'];
+} else {
+    $text = $_GET['t'];
+}
+$text = str_replace('Р', 'P', $text);
 
 list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
 
