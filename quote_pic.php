@@ -20,14 +20,14 @@ $lines_shift = array(
 );
 
 if (!empty($_GET['f']))
-    $fsize = $lines_fsize[1];
-else
     $fsize = $_GET['f'];
+else
+    $fsize = $lines_fsize[1];
 
 if (!empty($_GET['s']))
-    $shift = $lines_shift[1];
-else
     $fsize = $_GET['s'];
+else
+    $shift = $lines_shift[1];
 
 function wordWrapAnnotation($image, $draw, $text, $maxWidth) {   
     $text = trim($text);
