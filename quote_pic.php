@@ -84,7 +84,7 @@ if (!empty($_GET['s']))
 else {
     $shift = round(($height - $lineHeight * count($lines))/ 2);
 }
-echo $shift;
+echo "lh:" . $lineHeight . ", shift:" . $shift . "<br>";
 
 if (count($lines) > 5) {
     $last_line = $lines[4];
