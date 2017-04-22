@@ -24,10 +24,6 @@ if (!empty($_GET['f']))
 else
     $fsize = $lines_fsize[1];
 
-if (!empty($_GET['s']))
-    $shift = $_GET['s'];
-else
-    $shift = $lines_shift[1];
 
 function wordWrapAnnotation($image, $draw, $text, $maxWidth) {   
     $text = trim($text);
@@ -56,6 +52,7 @@ function wordWrapAnnotation($image, $draw, $text, $maxWidth) {
 
 $image = new Imagick("images/vk_repost.jpg");
 $width = $image->getImageWidth();
+$height = $image->getImageHeight();
 $draw = new ImagickDraw();
 
 $draw->setFillColor('#29834f');
@@ -81,6 +78,12 @@ if (!empty($_GET['q'])) {
 $text = str_replace('Р', 'P', $text);
 
 list($lines, $lineHeight) = wordWrapAnnotation($image, $draw, $text, $width-20);
+
+if (!empty($_GET['s']))
+    $shift = $_GET['s'];
+else {
+    $shift = ($height - $lineHeight * count($lines)) % 2
+}
 
 if (count($lines) > 5) {
     $last_line = $lines[4];
