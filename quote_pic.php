@@ -84,6 +84,7 @@ if (!empty($_GET['s']))
 else {
     $shift = ($height - $lineHeight * count($lines)) % 2;
 }
+echo $shift;
 
 if (count($lines) > 5) {
     $last_line = $lines[4];
@@ -102,9 +103,8 @@ for($i = 0; $i < count($lines); $i++)
 
 $image->setImageFormat('png');
 
-header('Content-type: image/png');
-echo $image;
+//header('Content-type: image/png');echo $image;
 
-//echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
+echo '<img src="data:image/png;base64,'.base64_encode($image->getImageBlob()).'" alt="" />';
 
 ?>
