@@ -25,7 +25,7 @@ else
     $fsize = $lines_fsize[1];
 
 if (!empty($_GET['s']))
-    $fsize = $_GET['s'];
+    $shift = $_GET['s'];
 else
     $shift = $lines_shift[1];
 
