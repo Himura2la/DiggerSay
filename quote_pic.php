@@ -47,6 +47,8 @@ $draw->setTextUnderColor('#b8d331');
 
 if (!empty($_GET['q'])) {
     $id = $_GET['q'];
+    
+    require 'db.php';
     $stmt = $mysqli->prepare("SELECT Text FROM quotes_main WHERE ID=?");
     $stmt->bind_param("d", $id);
     $stmt->execute();
