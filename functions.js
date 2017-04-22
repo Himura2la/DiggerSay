@@ -17,7 +17,7 @@ function share(event, url) {
 function share_vk(event) {
     url  = 'http://vkontakte.ru/share.php?';
     url += 'url='          + encodeURIComponent(document.location.href);
-    url += '&title='       + encodeURIComponent(current_quote);
+    url += '&title='       + encodeURIComponent("Скажет диггер");
     url += '&description=' + encodeURIComponent(document.title);
     url += '&image='       + encodeURIComponent(share_image_url());
     url += '&noparse=true';
