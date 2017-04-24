@@ -2,6 +2,9 @@
 // Нужен ТОКЕН ГРУППЫ СО ВСЕМИ ПРАВАМИ!
 $token = "b423a7253493821608f90897b901ac3c269b8bf903265a782375da7d6a367cad0580c44cdb2af548d7291";
 $cover_path = dirname(__FILE__).'/cover/'.mt_rand(1,3).'.jpg';
+//
+echo '<pre>';
+echo $cover_path;
 $post_data = array('photo' => $_SERVER['DOCUMENT_ROOT'].$cover_path);
 //$post_data = array('photo' => new CURLFile($cover_path, 'image/jpeg', 'image0'));
 // рандомно выбирается фотография 1,2 или 3
