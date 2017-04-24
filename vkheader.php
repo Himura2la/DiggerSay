@@ -14,14 +14,15 @@ echo '<pre>урл загрузки: ';
 echo $url;
 // урл для загрузки фото получен
 // фото отправлено
-$ch = curl_init();
+$ch = curl_init($url);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-$result = json_decode(curl_exec($ch),true);
+$response = curl_exec($ch);
+$result = json_decode($response);
 echo '<pre>Отправка фото:<pre>';
 print_r($result);
 echo '<pre>сохраняем фото';
