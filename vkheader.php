@@ -6,7 +6,7 @@ $post_data = array("photo" => "@".$cover_path);
 // рандомно выбирается фотография 1,2 или 3
 $upload_url = file_get_contents("https://api.vk.com/method/photos.getOwnerCoverPhotoUploadServer?group_id=119527646&crop_x2=1590&access_token=".$token);
 $url = json_decode($upload_url)->response->upload_url;
-//echo $url;
+echo $url;
 // урл для загрузки фото получен
 // фото отправлено
 $ch = curl_init();
@@ -17,8 +17,8 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $result = json_decode(curl_exec($ch),true);
-//echo '<pre>';
-//print_r($result);
+echo '<pre>';
+print_r($result);
 // сохраняем фото
 $safe = file_get_contents("https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=".$result['hash']."&photo=".$result['photo']."&access_token=".$token);
 echo '<pre>';
