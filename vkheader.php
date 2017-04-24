@@ -19,7 +19,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $result = json_decode(curl_exec($ch),true);
 echo '<pre>';
 print_r($result);
-echo '<pre>сохраняем фото'
+echo '<pre>сохраняем фото';
 $safe = file_get_contents("https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=".$result['hash']."&photo=".$result['photo']."&access_token=".$token);
 echo '<pre>';
 print_r($safe);
