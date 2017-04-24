@@ -23,6 +23,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $response = curl_exec($ch);
 $result = json_decode($response);
+curl_close($ch);
 echo '<pre>Отправка фото:<pre>';
 print_r($result);
 echo '<pre>сохраняем фото';
