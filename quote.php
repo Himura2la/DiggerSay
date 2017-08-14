@@ -1,8 +1,6 @@
 <?php
 require 'db.php';
 
-echo "Проверка русского текста";
-
 if (isset($_GET['id'])){
     $id = $_GET['id'];
     
