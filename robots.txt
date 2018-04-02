@@ -1,0 +1,7 @@
+User-agent: * 
+Host: diggersay.ru
+Disallow: /*?*
+Disallow: /keybase.txt
+Disallow: /add.php
+Allow: /
+sitemap: https://diggersay.ru/sitemap.xml
