@@ -1,3 +1,7 @@
+<?php
+header("HTTP/1.1 301 Moved Permanently");
+header("Location: https://diggersay.ru");
+?>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
